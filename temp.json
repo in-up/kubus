@@ -1,0 +1,89 @@
+{
+    "response": {
+      "header": {
+        "resultCode": "00",
+        "resultMsg": "NORMAL SERVICE."
+      },
+      "body": {
+        "items": {
+          "item": [
+            {
+              "citycode": 31010,
+              "gpslati": 37.2999833,
+              "gpslong": 127.0294333,
+              "nodeid": "GGB200000006",
+              "nodenm": "광교공원.경기대수원캠퍼스입구.연무시장",
+              "nodeno": 1197
+            },
+            {
+              "citycode": 31010,
+              "gpslati": 37.2997667,
+              "gpslong": 127.0295167,
+              "nodeid": "GGB200000087",
+              "nodenm": "광교공원.경기대수원캠퍼스입구",
+              "nodeno": 1198
+            },
+            {
+              "citycode": 31010,
+              "gpslati": 37.2997833,
+              "gpslong": 127.0301333,
+              "nodeid": "GGB200000169",
+              "nodenm": "경기대수원캠퍼스입구.연무시장",
+              "nodeno": 1202
+            },
+            {
+              "citycode": 31010,
+              "gpslati": 37.3014333,
+              "gpslong": 127.03125,
+              "nodeid": "GGB200000007",
+              "nodenm": "광교산입구.경기대수원캠퍼스",
+              "nodeno": 1204
+            },
+            {
+              "citycode": 31010,
+              "gpslati": 37.3014333,
+              "gpslong": 127.0315167,
+              "nodeid": "GGB200000005",
+              "nodenm": "광교산입구.경기대수원캠퍼스",
+              "nodeno": 1205
+            },
+            {
+              "citycode": 31010,
+              "gpslati": 37.2985833,
+              "gpslong": 127.0271,
+              "nodeid": "GGB200000182",
+              "nodenm": "보훈원복지타운.보훈요양원",
+              "nodeno": 1193
+            },
+            {
+              "citycode": 31010,
+              "gpslati": 37.2984333,
+              "gpslong": 127.0267667,
+              "nodeid": "GGB200000140",
+              "nodenm": "보훈원복지타운.보훈요양원",
+              "nodeno": 1191
+            },
+            {
+              "citycode": 31010,
+              "gpslati": 37.30185,
+              "gpslong": 127.0339833,
+              "nodeid": "GGB203000229",
+              "nodenm": "경기대정문",
+              "nodeno": 4227
+            },
+            {
+              "citycode": 31010,
+              "gpslati": 37.3017,
+              "gpslong": 127.0342167,
+              "nodeid": "GGB203000230",
+              "nodenm": "경기대정문",
+              "nodeno": 4228
+            }
+          ]
+        },
+        "numOfRows": 10,
+        "pageNo": 1,
+        "totalCount": 9
+      }
+    }
+  }
