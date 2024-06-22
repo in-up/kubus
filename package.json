@@ -14,18 +14,24 @@
     "@emotion/react": "^11.11.4",
     "@emotion/styled": "^11.11.5",
     "@radix-ui/colors": "^3.0.0",
+    "@supabase/supabase-js": "^2.43.5",
+    "@swc/core": "^1.6.5",
+    "axios": "^1.7.2",
     "framer-motion": "^11.2.11",
-    "next": "14.2.3",
-    "react": "^18",
-    "react-dom": "^18",
+    "js-cookie": "^3.0.5",
+    "next": "^14.2.4",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
     "styled-components": "^6.1.11"
   },
   "devDependencies": {
+    "@types/dotenv": "^8.2.0",
+    "@types/js-cookie": "^3.0.6",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "eslint": "^8",
-    "eslint-config-next": "14.2.3",
+    "eslint-config-next": "^14.2.4",
     "supabase": "^1.172.2",
     "typescript": "^5"
   }

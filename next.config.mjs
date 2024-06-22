@@ -1,4 +1,10 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {};
+const nextConfig = {
+    swcMinify: true,
+  compiler: {
+    swcMinify: true,
+    styledComponents: true,
+  },
+};
 
 export default nextConfig;
