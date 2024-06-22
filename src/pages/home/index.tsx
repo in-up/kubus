@@ -1,11 +1,12 @@
-"use client";
+// "use client";
 import React, { useState } from "react";
 import Head from "next/head";
 import styled from "styled-components";
 import { Link } from "@chakra-ui/next-js";
 import { useRouter } from "next/router";
-import Header from "./Header";
+import Header from "../../layout/Header";
 import TabArea from "./TabArea";
+import { Button as CButton, Box, Flex } from "@chakra-ui/react"; // Chakra UI에서 필요한 컴포넌트들을 import
 
 const Main = styled.main`
   position: relative;
@@ -18,18 +19,28 @@ const Main = styled.main`
     "Segoe UI Symbol", sans-serif;
 
   .toppad {
-    margin-top: 4.5rem;
+    margin-top: 5rem;
   }
 `;
 
-const Useless = styled.div`
-  margin: 3rem;
+const Button = styled(CButton)`
+  background-color: #008aff;
+  color: #fff;
+  i {
+    font-size: 1.25rem;
+    margin: 0.5rem;
+    font-weight: 600;
+  }
 `;
 
 const App: React.FC = () => {
   const pageTitle = "쿠버스 KUBUS - 경기대학교 버스 정보 시스템";
   const [currentPage, setCurrentPage] = useState("tab1");
   const router = useRouter();
+
+  const handleRefresh = () => {
+    window.location.reload();
+  };
 
   return (
     <Main>
@@ -39,7 +50,19 @@ const App: React.FC = () => {
       <div className="toppad">
         <Header></Header>
       </div>
-      <TabArea></TabArea>
+      <TabArea />
+      <Flex
+        position="fixed"
+        bottom="1.5rem"
+        right="2rem"
+        alignItems="center"
+        justifyContent="center"
+        flexDirection="column"
+      >
+        <Button size="lg" onClick={handleRefresh} borderRadius="full" mb={3}>
+          <i className="ri-reset-left-line"></i>
+        </Button>
+      </Flex>
     </Main>
   );
 };

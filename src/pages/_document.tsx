@@ -11,7 +11,7 @@ class MyDocument extends Document {
       <Html lang="ko">
         <Head>
           <link
-            href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css"
+            href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css"
             rel="stylesheet"
           />
           <link
@@ -19,7 +19,7 @@ class MyDocument extends Document {
             as="style"
             href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/static/pretendard.css"
           />
-          <link rel="icon" href="/favicon.ico" />
+          <link rel="icon" href="/logo.svg" />
           <link
             rel="alternate"
             type="application/rss+xml"

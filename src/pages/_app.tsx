@@ -2,6 +2,7 @@ import React from "react";
 import App, { AppProps, AppContext } from "next/app";
 import { createGlobalStyle, ThemeProvider } from "styled-components";
 import { ChakraProvider } from "@chakra-ui/react";
+import theme from "../theme/theme";
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -27,10 +28,11 @@ class MyApp extends App {
             --font-rubik: font-family: "Pretendard", Pretendard, -apple-system, BlinkMacSystemFont,
     system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo",
     "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji",
-    "Segoe UI Symbol", sans-serif;;
+    "Segoe UI Symbol", sans-serif;
           }
         `}
         </style>
+        {/* <ChakraProvider theme={theme}> */}
         <ChakraProvider>
           <GlobalStyle />
           <Component {...pageProps} />
