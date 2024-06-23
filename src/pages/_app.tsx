@@ -32,8 +32,8 @@ class MyApp extends App {
           }
         `}
         </style>
-        {/* <ChakraProvider theme={theme}> */}
-        <ChakraProvider>
+        <ChakraProvider theme={theme}>
+          {/* <ChakraProvider> */}
           <GlobalStyle />
           <Component {...pageProps} />
         </ChakraProvider>

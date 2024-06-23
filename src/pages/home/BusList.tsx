@@ -1,21 +1,23 @@
 import React, { useState, useEffect } from "react";
 import { useRouter } from "next/router";
-import { UnorderedList, ListItem } from "@chakra-ui/react";
-import supabase from "../../api/supabaseClient"; // supabase 클라이언트 가져오기
+import { UnorderedList, Accordion, ListItem } from "@chakra-ui/react";
+import supabase from "../../api/supabaseClient";
 import Cookies from "js-cookie";
+import BusItem from "./BusItem";
 
 interface BusListProps {
-  nodeNo?: number; // 파라미터로 전달될 정수형 값 (기본값: 0)
+  nodeNo?: number;
 }
 
 const BusList: React.FC<BusListProps> = ({ nodeNo = 0 }) => {
   const router = useRouter();
-  const [selectedItems, setSelectedItems] = useState<string[]>([]);
+  const [selectedItems, setSelectedItems] = useState<
+    { routeNo: string; routeId: number }[]
+  >([]);
 
   useEffect(() => {
     const fetchRoutes = async () => {
       try {
-        // Supabase에서 모든 노선 가져오기
         const { data: routes, error } = await supabase
           .from("routes")
           .select("*");
@@ -25,23 +27,25 @@ const BusList: React.FC<BusListProps> = ({ nodeNo = 0 }) => {
           return;
         }
 
-        // 쿠키에서 숨김 처리된 노선 가져오기
         const hiddenRoutes = Cookies.get("hiddenRoutes");
         const hiddenRouteList = hiddenRoutes ? JSON.parse(hiddenRoutes) : [];
 
-        // 노선 필터링
         let shownRoutes = routes
           .filter(
             (route) => !hiddenRouteList.includes(route.route_no.toString())
           )
-          .map((route) => route.route_no.toString());
+          .map((route) => ({
+            routeNo: route.route_no.toString(),
+            routeId: route.route_id,
+          }));
 
         if (nodeNo !== 0) {
-          shownRoutes = shownRoutes.filter((routeNo) =>
+          shownRoutes = shownRoutes.filter((route) =>
             routes.some(
-              (route) =>
-                route.node_no === nodeNo &&
-                route.route_no.toString() === routeNo
+              (r) =>
+                r.node_no === nodeNo &&
+                r.route_no.toString() === route.routeNo &&
+                r.route_id === route.routeId
             )
           );
         }
@@ -53,14 +57,18 @@ const BusList: React.FC<BusListProps> = ({ nodeNo = 0 }) => {
     };
 
     fetchRoutes();
-  }, [nodeNo]); // nodeNo가 변경될 때마다 실행
+  }, [nodeNo]);
 
   return (
-    <UnorderedList>
+    <Accordion allowMultiple>
       {selectedItems.map((item) => (
-        <ListItem key={item}>{item}</ListItem>
+        <BusItem
+          key={item.routeId}
+          routeNo={item.routeNo}
+          routeId={item.routeId}
+        />
       ))}
-    </UnorderedList>
+    </Accordion>
   );
 };
 

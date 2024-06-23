@@ -8,9 +8,11 @@ import { slate, blackA, whiteA } from "@radix-ui/colors";
 import BusList from "./BusList";
 
 const Container = styled.div`
-  margin: 1rem;
-
   @media screen and (max-width: 768px) {
+  }
+
+  .tab {
+    margin: 1rem;
   }
 `;
 
@@ -30,11 +32,13 @@ const TabArea: React.FC = () => {
         index={selectedTab}
         onChange={handleTabChange}
       >
-        <TabList mb="1em">
-          <Tab onClick={() => handleTabChange(0)}>경기대 정문</Tab>
-          <Tab onClick={() => handleTabChange(1)}>광교산입구</Tab>
-          <Tab isDisabled>경기대 후문</Tab>
-        </TabList>
+        <div className="tab">
+          <TabList mb="1em">
+            <Tab onClick={() => handleTabChange(0)}>경기대 정문</Tab>
+            <Tab onClick={() => handleTabChange(1)}>광교산입구</Tab>
+            <Tab isDisabled>경기대 후문</Tab>
+          </TabList>
+        </div>
         <TabPanels>
           <TabPanel>
             <BusList nodeNo={selectedTab === 0 ? 1 : 0} />{" "}

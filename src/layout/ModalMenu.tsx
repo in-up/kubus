@@ -69,7 +69,11 @@ const ModalMenu: React.FC = () => {
           <Button onClick={handleSettingPush} variant="ghost">
             <i className="ri-settings-3-line"></i>쿠버스 설정
           </Button>
-          <Button onClick={handleOslPush} variant="ghost">
+          <Button
+            target="_blank"
+            variant="ghost"
+            href="https://github.com/in-up/kubus/issues"
+          >
             <i className="ri-mail-line"></i>문의하기
           </Button>
         </ModalBody>
