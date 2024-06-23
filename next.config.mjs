@@ -5,6 +5,9 @@ const nextConfig = {
     swcMinify: true,
     styledComponents: true,
   },
+  experimental: {
+    urlImports: ['https://esm.sh']
+  }
 };
 
 export default nextConfig;
