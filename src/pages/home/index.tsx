@@ -1,5 +1,5 @@
 // "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Head from "next/head";
 import styled from "styled-components";
 import { Link } from "@chakra-ui/next-js";
@@ -38,13 +38,25 @@ const Button = styled(CButton)`
 `;
 
 const App: React.FC = () => {
-  const pageTitle = "쿠버스 KUBUS - 경기대학교 버스 정보 시스템";
+  const pageTitle = "쿠버스 KUBUS";
   const [currentPage, setCurrentPage] = useState("tab1");
+  const [counter, setCounter] = useState(15);
   const router = useRouter();
 
   const handleRefresh = () => {
-    window.location.reload();
+    // window.location.reload();
   };
+
+  useEffect(() => {
+    if (counter > 0) {
+      const timer = setTimeout(() => {
+        setCounter(counter - 1);
+      }, 1000);
+      return () => clearTimeout(timer);
+    } else {
+      handleRefresh();
+    }
+  }, [counter]);
 
   return (
     <Main>
@@ -63,16 +75,10 @@ const App: React.FC = () => {
         justifyContent="center"
         flexDirection="column"
       >
-        <Button
-          size="lg"
-          onClick={handleRefresh}
-          borderRadius="full"
-          mb={3}
-          boxShadow="md"
-        >
+        <Button size="lg" borderRadius="full" mb={3} boxShadow="md">
           <div className="refresh">
             <Text fontSize="sm" as="b">
-              15초 후 업데이트
+              {counter}초 후 업데이트
             </Text>
           </div>
           <i className="ri-reset-left-line"></i>
